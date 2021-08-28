@@ -1,13 +1,10 @@
 class Service {
   methods: object = {};
 
-  dependencies: object = {};
-
   _this: object = {};
 
-  constructor(methods, dependencies) {
+  constructor(methods: object) {
     this.methods = methods;
-    this.dependencies = dependencies;
   }
 
   hasMethod(name) {
@@ -21,12 +18,7 @@ class Service {
     let argsToInject = [];
     let argsIndex = 0;
     for (let name of argsNames) {
-      let dependency = this.dependencies[name.trim()];
-      if (dependency) {
-        argsToInject.push(dependency);
-      } else {
-        argsToInject.push(args[argsIndex++]);
-      }
+      argsToInject.push(args[argsIndex++]);
     }
     return method.apply(this._this, argsToInject);
   }

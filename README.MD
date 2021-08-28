@@ -14,17 +14,12 @@ which service and which method should be called.
 
 ## Installation
 
-```
-npm install proxy-service-container
-```
-
 ## Example usage
 
 ```javascript
-let ProxyServiceContainerLib = require('proxy-service-container');
-let ProxyServiceContainerClass = ProxyServiceContainerLib.ProxyServiceContainer;
- 
-let sc1 = new ProxyServiceContainerClass();
+import ProxyServiceContainer from "../dist/proxy-service-container.js";
+
+const sc1 = new ProxyServiceContainer();
  
 sc1.addService('storage1', {
     save: function (dependency2, a, dependency1, b, c) {
@@ -77,6 +72,24 @@ console.log('result =', result);                            // result = -2
  
 result = sc1.callOn(['storage2'], 'save', 20, 21, 22);      // storage2.save called 20 21 22
 console.log('result =', result);                            // result = { storage2: 'storage2 result' }
+```
+
+Gives output:
+
+```
+storage2.save called 1 2 3
+result = storage2 result
+storage1.save called 4 5 6 undefined undefined
+result = storage 1 result
+storage1.save called 7 8 9 undefined undefined
+{ test: 1 }
+storage2.save called 7 8 9
+result = { storage1: 'storage 1 result', storage2: 'storage2 result' }
+result = -1
+result = { storage1: -1, storage2: -1 }
+result = -2
+storage2.save called 20 21 22
+result = { storage2: 'storage2 result' }
 ```
 
 ## Methods

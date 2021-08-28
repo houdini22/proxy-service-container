@@ -3,10 +3,10 @@ import ProxyServiceContainer from "../dist/proxy-service-container.js";
 const sc1 = new ProxyServiceContainer();
 
 sc1.addService('storage1', {
-    save: function (dependency2, a, dependency1, b, c) {
+    save: function (a, b, c) {
         // dependency injection here - dependency1 and dependency2
         // rest parameters are from sc1.call('save', 1, 2, 3); - so a === 1, b ===2, c === 3
-        console.log('storage1.save called', dependency2, a, dependency1, b, c);
+        console.log('storage1.save called', a, b, c);
         if (!this.test) {
             this.test = 1;
         } else {
@@ -15,10 +15,6 @@ sc1.addService('storage1', {
         }
         return 'storage 1 result';
     }
-}, {
-    // dependency injections
-    dependency1: 'dependency1 value',
-    dependency2: 'dependency2 value'
 });
 
 sc1.addService('storage2', {

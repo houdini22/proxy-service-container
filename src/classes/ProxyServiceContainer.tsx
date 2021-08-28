@@ -9,11 +9,11 @@ class ProxyServicesContainer {
 
   static ERR_NO_SERVICE = -2;
 
-  addService(name, methodsObj, dependencies = {}, setDefault = false) {
+  addService(name, methodsObj, setDefault = false) {
     if (Object.keys(this.services).length === 0) {
       setDefault = true;
     }
-    this.services[name] = new Service(methodsObj, dependencies);
+    this.services[name] = new Service(methodsObj);
     if (setDefault) {
       this.defaultService = this.services[name];
     }

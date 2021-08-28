@@ -35,14 +35,13 @@ var ProxyServicesContainer = /*#__PURE__*/function () {
   _createClass(ProxyServicesContainer, [{
     key: "addService",
     value: function addService(name, methodsObj) {
-      var dependencies = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      var setDefault = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+      var setDefault = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
       if (Object.keys(this.services).length === 0) {
         setDefault = true;
       }
 
-      this.services[name] = new _Service__WEBPACK_IMPORTED_MODULE_0__.default(methodsObj, dependencies);
+      this.services[name] = new _Service__WEBPACK_IMPORTED_MODULE_0__.default(methodsObj);
 
       if (setDefault) {
         this.defaultService = this.services[name];
@@ -176,17 +175,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var Service = /*#__PURE__*/function () {
-  function Service(methods, dependencies) {
+  function Service(methods) {
     _classCallCheck(this, Service);
 
     _defineProperty(this, "methods", {});
 
-    _defineProperty(this, "dependencies", {});
-
     _defineProperty(this, "_this", {});
 
     this.methods = methods;
-    this.dependencies = dependencies;
   }
 
   _createClass(Service, [{
@@ -209,14 +205,7 @@ var Service = /*#__PURE__*/function () {
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var _name = _step.value;
-
-          var dependency = this.dependencies[_name.trim()];
-
-          if (dependency) {
-            argsToInject.push(dependency);
-          } else {
-            argsToInject.push(args[argsIndex++]);
-          }
+          argsToInject.push(args[argsIndex++]);
         }
       } catch (err) {
         _iterator.e(err);
