@@ -79,9 +79,9 @@ Gives output:
 ```
 storage2.save called 1 2 3
 result = storage2 result
-storage1.save called 4 5 6 undefined undefined
+storage1.save called 4 5 6
 result = storage 1 result
-storage1.save called 7 8 9 undefined undefined
+storage1.save called 7 8 9
 { test: 1 }
 storage2.save called 7 8 9
 result = { storage1: 'storage 1 result', storage2: 'storage2 result' }
