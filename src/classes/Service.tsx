@@ -3,7 +3,7 @@ class Service {
 
   dependencies: object = {};
 
-  _this: {};
+  _this: object = {};
 
   constructor(methods, dependencies) {
     this.methods = methods;

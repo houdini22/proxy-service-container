@@ -183,6 +183,8 @@ var Service = /*#__PURE__*/function () {
 
     _defineProperty(this, "dependencies", {});
 
+    _defineProperty(this, "_this", {});
+
     this.methods = methods;
     this.dependencies = dependencies;
   }
@@ -297,11 +299,11 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ProxyServiceContainer": () => (/* reexport safe */ _classes_ProxyServiceContainer__WEBPACK_IMPORTED_MODULE_0__.default)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _classes_ProxyServiceContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./classes/ProxyServiceContainer */ "./src/classes/ProxyServiceContainer.tsx");
 
-
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_classes_ProxyServiceContainer__WEBPACK_IMPORTED_MODULE_0__.default);
 })();
 
 module.exports = __webpack_exports__;

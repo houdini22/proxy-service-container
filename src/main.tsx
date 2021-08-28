@@ -1,3 +1,3 @@
 import ProxyServiceContainer from "./classes/ProxyServiceContainer";
 
-export { ProxyServiceContainer };
+export default ProxyServiceContainer;

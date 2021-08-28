@@ -1,11 +1,6 @@
-/**
- * @author <baniczek@gmail.com>
- */
+import ProxyServiceContainer from "../dist/proxy-service-container.js";
 
-let ProxyServiceContainerLib = require('../src/main');
-let ProxyServiceContainerClass = ProxyServiceContainerLib.ProxyServiceContainer;
-
-let sc1 = new ProxyServiceContainerClass();
+const sc1 = new ProxyServiceContainer();
 
 sc1.addService('storage1', {
     save: function (dependency2, a, dependency1, b, c) {
