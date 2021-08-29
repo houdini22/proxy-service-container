@@ -1,6 +1,6 @@
 {
   "name": "proxy-service-container",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Services container which provides proxy for different services with dependency injection.",
   "main": "./dist/proxy-service-container.js",
   "devDependencies": {
