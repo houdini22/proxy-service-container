@@ -22,7 +22,7 @@ sc1.addService('storage2', {
         console.log('storage2.save called', a, b, c);
         return 'storage2 result';
     }
-}, undefined, true);
+}, true);
 
 let result;
 

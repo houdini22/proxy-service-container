@@ -7,20 +7,13 @@ class Service {
     this.methods = methods;
   }
 
-  hasMethod(name) {
+  hasMethod(name: string): boolean {
     return !!this.methods[name];
   }
 
-  callMethod(name, args) {
+  callMethod(name: string, args: Array<any>): any {
     let method = this.methods[name];
-    let match = method.toString().match(/^function\s*[^\(]*\(\s*([^\)]*)\)/m);
-    let argsNames = (match[1] || "").split(",");
-    let argsToInject = [];
-    let argsIndex = 0;
-    for (let name of argsNames) {
-      argsToInject.push(args[argsIndex++]);
-    }
-    return method.apply(this._this, argsToInject);
+    return method.apply(this._this, args);
   }
 }
 
